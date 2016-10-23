@@ -1,5 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
+var https = require('https').Server(app);
+
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
@@ -15,6 +17,7 @@ io.on('connection', function(socket){
 
 app.set('port', process.env.PORT || 3000);
 
-var server = http.listen(app.get('port'), function(){
+var server = https.listen(app.get('port'), function(){
   console.log('listening on ' +   server.address().port);
 });
+
