@@ -17,7 +17,6 @@ io.on('connection', function(socket){
 
 app.set('port', process.env.PORT || 3000);
 
-var server = https.listen(app.get('port'), function(){
+var server = http.listen(app.get('port'), function(){
   console.log('listening on ' +   server.address().port);
 });
-
