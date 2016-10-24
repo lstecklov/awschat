@@ -8,6 +8,11 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/health', function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end('okay');
+})
+
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
